@@ -1,5 +1,5 @@
 """
-juicer_2_tadbit.py v1.0
+juicer_2_tadbit.py v2.0
 By: George Spracklin
 
 This script takes juicer_tools dump dense format and appends two columns (chr and bin position).
