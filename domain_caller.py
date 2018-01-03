@@ -102,15 +102,15 @@ def domain_caller(lyst, outputfile, win_size):
         if (loop == 0 and float(lyst[i][3]) <0):
             diff_item=0
             diff_holder=[]
-            while diff_item <= 5:
+            while diff_item <= 10:
                 diff_item+=1
                 try:
                     diff_holder.append(float(lyst[i+diff_item][3]))
                 except IndexError:
                     continue #might want to use Pass here
-            if (sum(n<0 for n in diff_holder)) <= 2:
+            if (sum(n<0 for n in diff_holder)) <= 4:
                 continue
-            elif (sum(n<0 for n in diff_holder)) > 2:
+            elif (sum(n<0 for n in diff_holder)) > 5:
                 end=lyst[i-1][2]
                 output_file.write(end+'\n')
                 loop=1
