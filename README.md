@@ -12,3 +12,5 @@ juicer_2_tadbit.py takes juicer_tools dump dense matrix and appends chromosome c
 singlecell_DamID.py takes scDamID data from Kind et al., 2015 Cell and aggregates data into bedgraph format using numpy
 
 domain_caller.py takes bedgraph files and calls megabase sized domains
+
+translocation_hic.py takes Hi-C data in cooler format and looks for regions where trans (interchromosomal) interactions are higher than median of cis (intrachromosomal) interactions 
