@@ -1,16 +1,87 @@
-# Bioinformatic scripts-
-Various scripts to change fasta files (i.e. headers, chromosome separators, etc...)
+# Genomics Analysis Tools
 
-matrix.py converts TADbit matrix files (.mat) to BUTLRTools format 
+A collection of Python utilities for genomic data analysis, focusing on Hi-C, single-cell, and sequence data processing.
 
-bismark_chr_cov.py adds 'chr' to bismark .cov files that were aligned without 'chr' in the reference genome
+## Projects
 
-basemods_separator.py parses GFF files based on base modification (i.e. PacBio modifications - m6A, m4C etc...) 
+### Hi-C Analysis
+- **translocation_hic.py**: Detect potential chromosomal translocations using cooler format Hi-C data
+- **domain_caller.py**: Call megabase-sized domains from bedGraph files
+- **juicer_2_tadbit.py**: Convert Juicer dense matrices to TADbit format
+- **matrix.py**: Convert TADbit matrices to BUTLRTools format
 
-juicer_2_tadbit.py takes juicer_tools dump dense matrix and appends chromosome column and bin position, making file compatible with TADbit find.tads()
+### Single-Cell Analysis
+- **singlecell_DamID.py**: Process scDamID data (Kind et al., 2015) into bedGraph format
 
-singlecell_DamID.py takes scDamID data from Kind et al., 2015 Cell and aggregates data into bedgraph format using numpy
+### Sequence Processing
+- **basemods_separator.py**: Parse PacBio base modifications (m6A, m4C) from GFF files
+- **bismark_chr_cov.py**: Add chromosome prefix to Bismark coverage files
 
-domain_caller.py takes bedgraph files and calls megabase sized domains
+## Repository Structure
+```
+genomics-tools/
+├── projects/
+│   ├── hic_analysis/
+│   ├── scdamid_analysis/
+│   └── sequence_processing/
+├── src/
+│   ├── formats/
+│   ├── analysis/
+│   └── utils/
+├── tests/
+└── docs/
+```
 
-translocation_hic.py takes Hi-C data in cooler format and looks for regions where trans (interchromosomal) interactions are higher than median of cis (intrachromosomal) interactions 
+## Installation
+
+```bash
+git clone https://github.com/yourusername/genomics-tools.git
+cd genomics-tools
+```
+
+## Dependencies
+- numpy
+- pandas
+- cooler
+- TADbit
+- BUTLRTools
+
+## Usage Examples
+
+### Hi-C Translocation Detection
+```bash
+python src/analysis/translocation_hic.py input.cool
+```
+
+### Convert Juicer Matrix to TADbit
+```bash
+python src/formats/juicer_2_tadbit.py -i input.txt -o output.txt
+```
+
+### Process scDamID Data
+```bash
+python src/analysis/singlecell_DamID.py input_data.txt output.bedgraph
+```
+
+## Project Documentation
+
+Detailed documentation for each project can be found in their respective directories:
+- [Hi-C Analysis](projects/hic_analysis/README.md)
+- [scDamID Analysis](projects/scdamid_analysis/README.md)
+- [Sequence Processing](projects/sequence_processing/README.md)
+
+## Contributing
+
+Contributions are welcome! Please read our [contributing guidelines](CONTRIBUTING.md) before submitting pull requests.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Citation
+
+If you use these tools in your research, please cite.
+
+## Contact
+
+- GitHub Issues: For bug reports and feature requests
